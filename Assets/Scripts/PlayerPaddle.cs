@@ -20,7 +20,19 @@ public class PlayerPaddle : Paddle
     // FixedUpdate is for updating at a fixed time interval, for physics
     private void FixedUpdate()
     {
+        if (this.isFrozen)
+            return;
+
         if (_direction.sqrMagnitude != 0)
             _rigidbody.AddForce(_direction * this.speed);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Ball ball = collision.gameObject.GetComponent<Ball>();
+        if (ball != null)
+        {
+            ball.SetHitLast(1);
+        }
     }
 }

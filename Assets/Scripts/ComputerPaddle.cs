@@ -8,6 +8,9 @@ public class ComputerPaddle : Paddle
 
     private void FixedUpdate()
     {
+        if (this.isFrozen)
+            return;
+
         if (this.ball.velocity.x > 0.0f)
         {
             if (this.ball.position.y > this.transform.position.y)
@@ -29,6 +32,15 @@ public class ComputerPaddle : Paddle
             {
                 _rigidbody.AddForce(Vector2.up * this.speed);
             }
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Ball ball = collision.gameObject.GetComponent<Ball>();
+        if (ball != null)
+        {
+            ball.SetHitLast(2);
         }
     }
 }

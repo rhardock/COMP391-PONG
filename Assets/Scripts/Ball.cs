@@ -8,6 +8,8 @@ public class Ball : MonoBehaviour
 
     private Rigidbody2D _rigidbody;
 
+    private int hitLast = 0;
+
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -17,6 +19,7 @@ public class Ball : MonoBehaviour
     {
         ResetPosition();
         AddStartingForce();
+        SetHitLast(0);
     }
 
     public void AddStartingForce()
@@ -37,5 +40,15 @@ public class Ball : MonoBehaviour
     {
         _rigidbody.position = Vector3.zero;
         _rigidbody.velocity = Vector3.zero;
+    }
+
+    public void SetHitLast(int player)
+    {
+        hitLast = player;
+    }
+
+    public int GetHitLast()
+    {
+        return hitLast;
     }
 }
