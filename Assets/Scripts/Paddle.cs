@@ -37,13 +37,13 @@ public class Paddle : MonoBehaviour
     public void Shrink()
     {
         transform.localScale -= new Vector3(0F, 0.5f, 0f);
-        Invoke("ResetSize", 10);
+        // Invoke("ResetSize", 10); feel it makes a more fun game to keep the size shrunk until the next point is won
     }
 
     public void Expand()
     {
         transform.localScale += new Vector3(0F, 1f, 0f);
-        Invoke("ResetSize", 10);
+        // Invoke("ResetSize", 10);
     }
 
     public void ResetSize()

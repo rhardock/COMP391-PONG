@@ -36,7 +36,7 @@ public class PowerUp : MonoBehaviour
         this.gameObject.transform.position = newPosition;
 
         // randomly decide which power up this is -- 3 choices, our paddle larger, opponent paddle smaller, opponent freeze
-        powerUpType = Random.Range(1, 3);
+        powerUpType = Random.Range(1, 4);
 
         if (powerUpType == 1)
             _renderer.material.SetColor("_Color", Color.red);

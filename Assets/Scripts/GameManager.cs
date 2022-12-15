@@ -73,4 +73,13 @@ public class GameManager : MonoBehaviour
 
         ResetRound();
     }
+
+    private void Update()
+    {
+        // use ESC as a way to quit the game
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+    }
 }
